@@ -1,2 +1,2 @@
-# python_study
+# codingtest_study
 baekjoon_study
