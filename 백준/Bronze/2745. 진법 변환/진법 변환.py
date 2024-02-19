@@ -1,18 +1,15 @@
 import sys
 
-num = list(map(str, sys.stdin.readline().strip().split(' ')))
-num[1] = int(num[1])
-num[0] = list(num[0])
-leng = len(num[0])
+N, B = map(str, sys.stdin.readline().split(' '))
+N = list(N)
+B = int(B)
 res = 0
-for i in range(leng):
-    if (ord(num[0][i]) > 64):
-        num[0][i] = ord(num[0][i]) - 55
-    else:
-        num[0][i] = int(num[0][i])
 
-    num[0][i] = num[0][i] * (num[1] ** (leng-i-1))
-
-    res = res + num[0][i]
-
+num = len(N)
+for i in range(num):
+    word = ord(N[num-i-1])
+    if (word < 65):        # 숫자인 경우
+        res += (word - 48) * (B ** i)
+    else:                       # 알파벳인 경우
+        res += (word - 55) * (B ** i)
 print(res)
